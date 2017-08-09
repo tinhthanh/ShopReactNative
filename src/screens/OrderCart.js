@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, Alert, Image, StyleSheet } from 'react-native';
+import { View, Text, Alert, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 import { SearchBar, Avatar, Header, Card, ListItem, Button } from 'react-native-elements';
 
+const util = require('util');
 
     const users = [
  {
@@ -36,10 +37,11 @@ export default class OrderCart extends Component {
      render() {
          return (
              <View>
+               
                    <Header  
                           backgroundColor='rgb(61, 109, 203)'
   leftComponent={{ icon: 'menu', color: '#fff' }}
-  centerComponent={<MyCustomCenterComponent />} 
+  centerComponent={<MyCustomCenterComponent eventNavigation={this.props.navigation} />} 
   rightComponent={{ icon: 'home', color: '#fff' }}
                    />
  <Card containerStyle={{ padding: 0, marginTop: 150 }} >
@@ -83,10 +85,15 @@ const styles = StyleSheet.create({
     height: 26,
   },
 });
+
      class MyCustomCenterComponent extends Component {
       render() {
+        const { eventNavigation } = this.props;
+           console.log(util.inspect(this.props));
          return (
-            <Text > XIn chao </Text>
-         )
+            <TouchableOpacity onPress={() => { eventNavigation.navigate('DrawerOpen'); }} >
+              <Text style={{ padding: 10, fontSize: 20, color: '#fff' }}> OpenMenu </Text>
+             </TouchableOpacity> 
+         );
       }
  }
