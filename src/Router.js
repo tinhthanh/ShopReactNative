@@ -1,6 +1,6 @@
 import React from 'react';
-import { Image, View, ScrollView, Text, Platform, StyleSheet } from 'react-native';
-import { StackNavigator, TabNavigator, DrawerNavigator, DrawerItems } from 'react-navigation';
+import { Image, View, ScrollView, Text, Platform, StyleSheet, Button } from 'react-native';
+import { StackNavigator, TabNavigator, DrawerNavigator, DrawerItems, DrawerButton } from 'react-navigation';
 import { Icon } from 'react-native-elements';
 import Drawer from 'react-native-drawer';
 
@@ -14,10 +14,13 @@ import Menu from './screens/DrawerMenu';
           MangHinh_Home: {
               screen: Home,
               navigationOptions: {
-                title: 'Trang xx chủ',
-                 drawerLabel: 'Trang chu',
-            
-                
+                   headerRight: <Button title="Info" />,
+                   headerTitle: <Text style={{ flex: 1, width: '100%', backgroundColor: '#008000' }} >Sendo.vn</Text>,
+                   headerLeft: <Button title="Info" />,
+                   title: 'Trang xx chủ',
+                 drawerLabel: 'Trang chu'
+              
+    
               }
            },
             MangHinh_Details: {
@@ -83,35 +86,7 @@ import Menu from './screens/DrawerMenu';
            contentComponent: props => <CustomDrawerContentComponent {...props} />
            }
        );
-          
-//      class  MyMain extends React.Component {
 
-//       render() {
-//         return (   
-//           <View />
-//         );
-//       }
-//      }
-
-//     class Application extends React.Component {
-//         closeControlPanel = () => {
-//     this.drawer.close();
-//   };
-//   openControlPanel = () => {
-//     this.drawer.open();
-//   };
-
-//   render() {
-//     return (
-//      <Drawer
-//         ref={(ref) => { this.drawer = ref; }}
-//         content={<Menu />}
-//      >
-//         <Tabbar />
-//       </Drawer>
-//     );
-//   }
-// }
 const uri = 'https://pickaface.net/gallery/avatar/Opi51c74d0125fd4.png';
 const CustomDrawerContentComponent = (props) => (
   <ScrollView>
