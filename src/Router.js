@@ -15,11 +15,10 @@ import Menu from './screens/DrawerMenu';
               screen: Home,
               navigationOptions: {
                    headerRight: <Button title="Info" />,
-                   headerTitle: <Text style={{ flex: 1, width: '100%', backgroundColor: '#008000' }} >Sendo.vn</Text>,
+                   headerTitle: <Text style={{ flex: 1, width: '100', backgroundColor: '#008000' }} >Sendo.vn</Text>,
                    headerLeft: <Button title="Info" />,
                    title: 'Trang xx chủ',
                  drawerLabel: 'Trang chu'
-              
     
               }
            },
